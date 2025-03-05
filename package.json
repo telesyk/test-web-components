@@ -1,7 +1,26 @@
 {
   "name": "test-web-components",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "index.js",
   "license": "MIT",
-  "packageManager": "yarn@4.7.0"
+  "packageManager": "yarn@4.7.0",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.9",
+    "tailwindcss": "^4.0.9"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "globals": "^16.0.0",
+    "parcel": "^2.13.3",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3"
+  },
+  "source": "src/index.html",
+  "scripts": {
+    "serve": "parcel src/index.html",
+    "build": "parcel build"
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }

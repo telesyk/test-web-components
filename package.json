@@ -1,0 +1,7 @@
+{
+  "name": "test-web-components",
+  "version": "1.0.0",
+  "main": "index.html",
+  "license": "MIT",
+  "packageManager": "yarn@4.7.0"
+}

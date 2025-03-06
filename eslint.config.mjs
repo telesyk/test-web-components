@@ -1,15 +1,14 @@
-import globals from "globals";
-
+import globals from 'globals'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    languageOptions: { 
-      globals: globals.browser
+    languageOptions: {
+      globals: globals.browser,
     },
-    extends: ['airbnb', 'prettier'],
+    extends: ['eslint:recommended', 'airbnb-base', 'prettier'],
     rules: {
       camelcase: 0,
-    }
+    },
   },
-];
+]

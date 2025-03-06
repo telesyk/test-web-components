@@ -1,2 +1,5 @@
-document.getElementById('app').innerHTML =
-  '<h1 class="text-3xl font-bold underline">Hello world!</h1>'
+// const fragment = document.createDocumentFragment();
+const template = document.createElement('template')
+template.innerHTML = '<p class="font-mono underline">Hello world!</p>'
+
+// document.getElementById('app').appendChild(template.content.cloneNode(true))

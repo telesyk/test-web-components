@@ -1,20 +1,19 @@
 const template = document.createElement('template')
 template.innerHTML = `
 <style>
-  .page-header {
-    display: var(--header-layout);
-    padding: var(--header-inner-space);
-    gap: var(--header-gap);
-    justify-content: var(--header-justify-content);
-  }
+.header-brand {
+  display: var(--brand-layout);
+  gap: var(--brand-gap);
+  align-items: var(--brand-items-align);
+}
 </style>
-<header class="page-header">
-  <slot name="brand"></slot>
-  <slot name="nav"></slot>
-</header>
+<div class="header-brand">
+  <slot name="brand-logo"></slot>
+  <slot name="brand-name"></slot>
+</div>
 `
 
-export class Header extends HTMLElement {
+export class BrandWrapper extends HTMLElement {
   constructor() {
     super()
 
@@ -34,4 +33,4 @@ export class Header extends HTMLElement {
   }
 }
 
-customElements.define('page-header', Header)
+customElements.define('brand-wrapper', BrandWrapper)

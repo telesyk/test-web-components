@@ -1,4 +1,11 @@
-import { PageWrapper, Heeader, MainWrapper, Nav } from './components/index.js'
+import {
+  PageWrapper,
+  Heeader,
+  MainWrapper,
+  Nav,
+  BrandWrapper,
+  BrandLogo,
+} from './components/index.js'
 
 const template = document.createElement('template')
 template.innerHTML = `
@@ -25,10 +32,32 @@ template.innerHTML = `
       margin: var(--main-text-margin, revert);
       line-height: var(--main-text-line-height, initial);
     }
+    .brand-logo {
+      width: var(--brand-logo-size);
+      stroke: var(--brand-logo-stroke);
+    }
+    .brand-logo + .brand-name {
+      padding-left: var(--basic);
+      border-left: var(--basic-border-width) solid var(--basic-border-color);
+    }
+    [slot="copyright"] {
+      font-size: var(--footer-copyright-text-size);
+    }
+    nav-wrapper a {
+      color: var(--nav-link-color);
+      text-decoration: var(--nav-link-decoration);
+
+      &:hover {
+        --nav-link-color: var(--text-color);
+      }
+    }
   </style>
   <page-wrapper>
     <page-header slot="header">
-      <div slot="brand">Logo|Brand</div>
+      <brand-wrapper slot="brand">
+        <brand-logo slot="brand-logo" class="brand-logo"></brand-logo>
+        <div slot="brand-name" class="brand-name">Brand</div>
+      </brand-wrapper>
       <nav-wrapper slot="nav" data-class="header-nav">
         <a title="Service page" href="#">Service</a>
         <a title="Company page" href="#">Company</a>
@@ -55,6 +84,15 @@ template.innerHTML = `
           optio quo excepturi!</p>
       </section>
     </page-main>
+    <page-footer slot="footer">
+      <brand-wrapper slot="brand">
+        <brand-logo slot="brand-logo" class="brand-logo"></brand-logo>
+        <div slot="brand-name" class="brand-name">Brand</div>
+      </brand-wrapper>
+      <div slot="copyright">
+        <p>Copyright @ 2025</p>
+      </div>
+    </page-footer>
   </page-wrapper>
 `
 

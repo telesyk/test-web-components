@@ -10,7 +10,7 @@ template.innerHTML = `
   <page-wrapper>
     <page-header slot="header">
       <div slot="brand">Logo|Brand</div>
-      <nav-wrapper slot="nav">
+      <nav-wrapper slot="nav" data-class="header-nav">
         <a title="Service page" href="#">Service</a>
         <a title="Company page" href="#">Company</a>
         <a title="Contact page" href="#">Contact</a>
@@ -18,13 +18,13 @@ template.innerHTML = `
     </page-header>
     <page-main slot="main">
       <section slot="main-additional" class="main-additional">
-        <nav-wrapper slot="nav">
+        <nav-wrapper slot="nav" data-class="main-nav">
           <a href="#">Some informative link</a>
           <a href="#">Other link</a>
           <a href="#">And yet another info here</a>
         </nav-wrapper>
       </section>
-      <section slot="main-content" class="main-coontent">
+      <section slot="main-content" class="main-content">
         <img
           src="https://images.unsplash.com/photo-1626808642875-0aa545482dfb?q=80&w=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="sample image" class="" />
@@ -48,6 +48,10 @@ export class HomePage extends HTMLElement {
 
   connectedCallback() {
     this.render()
+  }
+
+  disconnectedCallback() {
+    console.log('disconnected')
   }
 
   render() {

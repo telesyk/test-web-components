@@ -26,6 +26,10 @@ export class Header extends HTMLElement {
     this.render()
   }
 
+  disconnectedCallback() {
+    console.log('disconnected')
+  }
+
   render() {
     this.shadowRoot.appendChild(template.content.cloneNode(true))
   }

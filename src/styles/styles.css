@@ -21,6 +21,8 @@
   --header-border: var(--basic-border-width) solid var(--basic-border-color);
   --nav-layout: flex;
   --nav-gap: var(--basic);
+  --nav-justify: initial;
+  --nav-direction: column;
   --container-width: 100%;
   --container-inner-space: calc(var(--basic) * 2);
 }

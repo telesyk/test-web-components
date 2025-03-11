@@ -22,6 +22,10 @@ export class MainWrapper extends HTMLElement {
     this.render()
   }
 
+  disconnectedCallback() {
+    console.log('disconnected')
+  }
+
   render() {
     this.shadowRoot.appendChild(template.content.cloneNode(true))
   }

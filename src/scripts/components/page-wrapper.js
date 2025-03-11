@@ -7,7 +7,7 @@ template.innerHTML = `
   .page-wrapper {
     margin: auto;
     padding: var(--container-inner-space);
-    width: var(--container-width);
+    max-width: var(--container-width);
     border-radius: var(--container-border-radius, 0);
     background-color: var(--container-bg-color, transparent);
   }
@@ -27,6 +27,10 @@ export class PageWrapper extends HTMLElement {
 
   connectedCallback() {
     this.render()
+  }
+
+  disconnectedCallback() {
+    console.log('disconnected')
   }
 
   render() {

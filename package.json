@@ -19,7 +19,8 @@
   },
   "source": "src/index.html",
   "scripts": {
-    "serve": "parcel src/index.html",
+    "serve": "parcel src/*.html",
+    "serve:https": "parcel src/*.html --https",
     "build": "parcel build"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"

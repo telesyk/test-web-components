@@ -1,5 +1,18 @@
-// const fragment = document.createDocumentFragment();
-const template = document.createElement('template')
-template.innerHTML = '<p class="font-mono underline">Hello world!</p>'
+import { HomePage } from './home-page.js'
 
-// document.getElementById('app').appendChild(template.content.cloneNode(true))
+const homePage = new HomePage()
+
+document.getElementById('app').appendChild(homePage)
+/*
+ * There should be some router
+ * that checks the url and render
+ * proper page to the #app
+ * switch(url) {
+ *  case '/':
+ *    HomPage;
+ *  case '/about':
+ *    AboutPage;
+ *  default:
+ *    ErrorPage;
+ * }
+ */

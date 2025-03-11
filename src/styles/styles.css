@@ -7,6 +7,7 @@
   --color-secondary-gradient: #415a77;
   /* Initial values */
   --basic: 1rem;
+  --basic-double: calc(var(--basic) * 2);
   --basic-border-width: 2px;
   --basic-border-color: var(--color-secondary-gradient);
   /* Thema */
@@ -18,21 +19,48 @@
   --header-layout: flex;
   --header-gap: var(--basic);
   --header-inner-space: var(--basic) 0;
-  --header-border: var(--basic-border-width) solid var(--basic-border-color);
   --nav-layout: flex;
   --nav-gap: var(--basic);
   --nav-justify: initial;
   --nav-direction: column;
   --container-width: 100%;
-  --container-inner-space: calc(var(--basic) * 2);
+  --container-inner-space: var(--basic-double);
+  --main-border: var(--basic-border-width) solid var(--basic-border-color);
+  --main-layout: initial;
+  --main-inner-space: var(--basic);
+  --main-template-col: none;
+  --main-image-width: auto;
+  --main-image-border-radius: var(--basic);
+  --main-text-line-height: 1.375;
 }
 @media screen and (min-width: 720px) {
   :root {
     --app-inner-space: calc(var(--basic) * 2) 0;
     --container-width: 640px;
     --container-inner-space: calc(var(--basic) * 1.5);
-    --container-border-radius: calc(var(--basic) * 2);
+    --container-border-radius: var(--basic-double);
     --container-bg-color: var(--color-basis-gradient);
+    --main-layout: grid;
+    --main-template-col: 1fr 1fr;
+    --main-additional-column-position: 2 / 3;
+    --main-additional-row-position: 1 / 2;
+    --main-content-column-position: 1 / 2;
+    --main-content-row-position: 1 / 2;
+  }
+}
+@media screen and (min-width: 860px) {
+  :root {
+    --container-width: 720px;
+    --main-template-col: 2fr 1fr;
+    --main-inner-space: var(--basic-double);
+    --main-additional-inner-space: var(--basic);
+    --main-additional-bg-color: var(--bg-color);
+    --main-additional-border-radius: var(--basic);
+    --main-image-width: 180px;
+    --main-image-float: left;
+    --main-image-margin-end: var(--basic);
+    --main-text-margin: 0 var(--basic) 0 0;
+    --main-text-line-height: 1.5;
   }
 }
 

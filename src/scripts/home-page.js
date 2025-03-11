@@ -3,8 +3,27 @@ import { PageWrapper, Heeader, MainWrapper, Nav } from './components/index.js'
 const template = document.createElement('template')
 template.innerHTML = `
   <style>
-    :host {
-      display: block;
+    .main-additional {
+      grid-column: var(--main-additional-column-position, initial);
+      grid-row: var(--main-additional-row-position, initial);
+      padding: var(--main-additional-inner-space, initial);
+      border-radius: var(--main-additional-border-radius, initial);
+      background-color: var(--main-additional-bg-color, initial);
+    }
+    .main-content {
+      grid-column: var(--main-content-column-position, initial);
+      grid-row: var(--main-content-row-position, initial);
+    }
+    .main-content-image {
+      width: var(--main-image-width);
+      border-radius: var(--main-image-border-radius);
+      float: var(--main-image-float, none);
+      margin-inline-end: var(--main-image-margin-end, 0);
+      margin-block-end: var(--main-image-margin-end, 0);
+    }
+    .main-content-text {
+      margin: var(--main-text-margin, revert);
+      line-height: var(--main-text-line-height, initial);
     }
   </style>
   <page-wrapper>
@@ -27,8 +46,8 @@ template.innerHTML = `
       <section slot="main-content" class="main-content">
         <img
           src="https://images.unsplash.com/photo-1626808642875-0aa545482dfb?q=80&w=256&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="sample image" class="" />
-        <p class="">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus odit
+          alt="sample image" class="main-content-image" />
+        <p class="main-content-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus odit
           quaerat asperiores debitis,
           molestiae maiores deleniti saepe cumque tempore. Atque ut quisquam at perspiciatis natus quos id. Asperiores,
           enim officiis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates sunt laborum inventore

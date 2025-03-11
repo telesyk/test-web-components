@@ -1,8 +1,12 @@
 const template = document.createElement('template')
 template.innerHTML = `
 <style>
-  :host {
-    display: block;
+  .page-main {
+    display: var(--main-layout);
+    grid-template-columns: var(--main-template-col);
+    padding: var(--main-inner-space) 0;
+    border-bottom: var(--main-border);
+    border-top: var(--main-border);
   }
 </style>
 <main class="page-main">

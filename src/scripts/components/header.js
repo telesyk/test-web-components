@@ -6,7 +6,6 @@ template.innerHTML = `
     padding: var(--header-inner-space);
     gap: var(--header-gap);
     justify-content: space-between;
-    border-bottom: var(--header-border);
   }
 </style>
 <header class="page-header">

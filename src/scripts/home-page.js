@@ -1,3 +1,4 @@
+import { headerMenu, sideMenu } from './data.js'
 import {
   PageWrapper,
   Heeader,
@@ -58,19 +59,11 @@ template.innerHTML = `
         <brand-logo slot="brand-logo" class="brand-logo"></brand-logo>
         <div slot="brand-name" class="brand-name">Brand</div>
       </brand-wrapper>
-      <nav-wrapper slot="nav" data-class="header-nav">
-        <a title="Service page" href="#">Service</a>
-        <a title="Company page" href="#">Company</a>
-        <a title="Contact page" href="#">Contact</a>
-      </nav-wrapper>
+      <nav-wrapper slot="nav" data-class="header-nav"></nav-wrapper>
     </page-header>
     <page-main slot="main">
       <section slot="main-additional" class="main-additional">
-        <nav-wrapper slot="nav" data-class="main-nav">
-          <a href="#">Some informative link</a>
-          <a href="#">Other link</a>
-          <a href="#">And yet another info here</a>
-        </nav-wrapper>
+        <nav-wrapper slot="nav" data-class="main-nav"></nav-wrapper>
       </section>
       <section slot="main-content" class="main-content">
         <img
@@ -111,8 +104,34 @@ export class HomePage extends HTMLElement {
     console.log('disconnected')
   }
 
+  createHeaderMenu(data) {
+    const fragment = document.createDocumentFragment()
+
+    data.map(item => {
+      const linkElement = document.createElement('a')
+
+      linkElement.textContent = item.name
+      linkElement.setAttribute('href', item.url)
+      linkElement.setAttribute('title', `${item.name} page`)
+
+      fragment.appendChild(linkElement)
+    })
+
+    return fragment
+  }
+
   render() {
     this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+    const headerMenuElement = this.shadowRoot.querySelector(
+      'page-header nav-wrapper'
+    )
+    const sideMenuElement = this.shadowRoot.querySelector(
+      'page-main nav-wrapper'
+    )
+
+    headerMenuElement.appendChild(this.createHeaderMenu(headerMenu))
+    sideMenuElement.appendChild(this.createHeaderMenu(sideMenu))
   }
 }
 

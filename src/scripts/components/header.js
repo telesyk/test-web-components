@@ -1,13 +1,17 @@
+const styles = `
+<style>
+.page-header {
+  display: var(--header-layout);
+  padding: var(--header-inner-space);
+  gap: var(--header-gap);
+  justify-content: var(--header-justify-content);
+  align-items: var(--header-place-content);
+}
+</style>
+`
 const template = document.createElement('template')
 template.innerHTML = `
-<style>
-  .page-header {
-    display: var(--header-layout);
-    padding: var(--header-inner-space);
-    gap: var(--header-gap);
-    justify-content: var(--header-justify-content);
-  }
-</style>
+${styles}
 <header class="page-header">
   <slot name="brand"></slot>
   <slot name="nav"></slot>
@@ -22,15 +26,11 @@ export class Header extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render()
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 
   disconnectedCallback() {
     console.log('disconnected')
-  }
-
-  render() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 }
 

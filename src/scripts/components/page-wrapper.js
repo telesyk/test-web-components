@@ -1,17 +1,20 @@
+const styles = `
+<style>
+:host {
+  display: block;
+}
+.page-wrapper {
+  margin: auto;
+  padding: var(--container-inner-space);
+  max-width: var(--container-width);
+  border-radius: var(--container-border-radius, 0);
+  background-color: var(--container-bg-color, transparent);
+}
+</style>
+`
 const template = document.createElement('template')
 template.innerHTML = `
-<style>
-  :host {
-    display: block;
-  }
-  .page-wrapper {
-    margin: auto;
-    padding: var(--container-inner-space);
-    max-width: var(--container-width);
-    border-radius: var(--container-border-radius, 0);
-    background-color: var(--container-bg-color, transparent);
-  }
-</style>
+${styles}
 <div class="page-wrapper">
   <slot name="header"></slot>
   <slot name="main"></slot>
@@ -27,15 +30,11 @@ export class PageWrapper extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render()
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 
   disconnectedCallback() {
     console.log('disconnected')
-  }
-
-  render() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 }
 

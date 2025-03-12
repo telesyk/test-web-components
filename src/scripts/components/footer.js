@@ -1,15 +1,18 @@
+const styles = `
+<style>
+.page-footer {
+  display: var(--footer-layout);
+  flex-direction: var(--footer-layout-direction);
+  padding: var(--footer-inner-space);
+  gap: var(--footer-gap);
+  justify-content: var(--footer-place-content);
+  align-items: var(--footer-place-content);
+}
+</style>
+`
 const template = document.createElement('template')
 template.innerHTML = `
-<style>
-  .page-footer {
-    display: var(--footer-layout);
-    flex-direction: var(--footer-layout-direction);
-    padding: var(--footer-inner-space);
-    gap: var(--footer-gap);
-    justify-content: var(--footer-justify-content);
-    align-items: var(--footer-align-items);
-  }
-</style>
+${styles}
 <footer class="page-footer">
   <slot name="brand"></slot>
   <slot name="copyright"></slot>
@@ -24,15 +27,11 @@ export class Footer extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render()
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 
   disconnectedCallback() {
     console.log('disconnected')
-  }
-
-  render() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 }
 

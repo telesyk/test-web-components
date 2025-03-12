@@ -10,6 +10,7 @@
   --basic-double: calc(var(--basic) * 2);
   --basic-border-width: 2px;
   --basic-border-color: var(--color-secondary-gradient);
+  --box-sizing-border: border-box;
   /* Thema */
   --bg-color: var(--color-basis);
   --text-color: var(--color-primary);
@@ -22,24 +23,32 @@
   --header-gap: var(--basic);
   --header-inner-space: var(--basic) 0;
   --header-justify-content: space-between;
+  --header-place-content: center;
   --footer-layout: flex;
   --footer-layout-direction: column;
   --footer-gap: var(--basic);
   --footer-inner-space: var(--basic) 0;
-  --footer-justify-content: center;
-  --footer-align-items: center;
+  --footer-place-content: center;
   --footer-copyright-text-size: 0.75em;
   --brand-layout: flex;
   --brand-gap: var(--basic);
   --brand-items-align: center;
   --brand-logo-size: 36px;
   --brand-logo-stroke: var(--color-secondary);
+  --nav-position: relative;
   --nav-layout: flex;
-  --nav-gap: var(--basic);
-  --nav-justify: initial;
-  --nav-direction: column;
-  --nav-link-color: var(--color-secondary);
-  --nav-link-decoration: none;
+  --nav-place-content: center;
+  --nav-menu-layout: flex;
+  --nav-menu-gap: var(--basic);
+  --nav-menu-place-content: initial;
+  --nav-menu-direction: column;
+  --nav-menu-link-color: var(--color-secondary);
+  --nav-menu-link-decoration: none;
+  --nav-button-layout: flex;
+  --nav-button-bg-color: var(--color-secondary-gradient);
+  --nav-button-color: var(--color-secondary);
+  --nav-button-border: none;
+  --nav-button-border-radius: var(--basic);
   --main-border: var(--basic-border-width) solid var(--basic-border-color);
   --main-layout: initial;
   --main-inner-space: var(--basic);
@@ -47,6 +56,7 @@
   --main-image-width: auto;
   --main-image-border-radius: var(--basic);
   --main-text-line-height: 1.375;
+  --main-additional-inner-space: 0 0 var(--basic-double) 0;
 }
 @media screen and (min-width: 640px) {
   :root {
@@ -441,6 +451,10 @@ template {
 }
 
 /* CUSTOM STYLES */
+* {
+  box-sizing: var(--box-sizing-border);
+}
+
 html {
   background-color: var(--bg-color);
 }

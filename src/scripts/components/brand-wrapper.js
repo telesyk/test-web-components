@@ -1,5 +1,4 @@
-const template = document.createElement('template')
-template.innerHTML = `
+const styles = `
 <style>
 .header-brand {
   display: var(--brand-layout);
@@ -7,6 +6,10 @@ template.innerHTML = `
   align-items: var(--brand-items-align);
 }
 </style>
+`
+const template = document.createElement('template')
+template.innerHTML = `
+${styles}
 <div class="header-brand">
   <slot name="brand-logo"></slot>
   <slot name="brand-name"></slot>
@@ -21,15 +24,11 @@ export class BrandWrapper extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render()
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 
   disconnectedCallback() {
     console.log('disconnected')
-  }
-
-  render() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 }
 

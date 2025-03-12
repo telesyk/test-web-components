@@ -1,14 +1,17 @@
+const styles = `
+<style>
+.page-main {
+  display: var(--main-layout);
+  grid-template-columns: var(--main-template-col);
+  padding: var(--main-inner-space) 0;
+  border-bottom: var(--main-border);
+  border-top: var(--main-border);
+}
+</style>
+`
 const template = document.createElement('template')
 template.innerHTML = `
-<style>
-  .page-main {
-    display: var(--main-layout);
-    grid-template-columns: var(--main-template-col);
-    padding: var(--main-inner-space) 0;
-    border-bottom: var(--main-border);
-    border-top: var(--main-border);
-  }
-</style>
+${styles}
 <main class="page-main">
   <slot name="main-additional"></slot>
   <slot name="main-content"></slot>
@@ -23,15 +26,11 @@ export class MainWrapper extends HTMLElement {
   }
 
   connectedCallback() {
-    this.render()
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 
   disconnectedCallback() {
     console.log('disconnected')
-  }
-
-  render() {
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
   }
 }
 
